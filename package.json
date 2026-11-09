@@ -1,0 +1,16 @@
+{
+  "name": "sum-addition-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "node index.js",
+    "build": "npm run typecheck && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test addition.test.js"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vite": "8.3.7"
+  }
+}
