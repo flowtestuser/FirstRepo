@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple, clear tool for adding two numbers."
+    />
+    <meta name="theme-color" content="#f4f0e7" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Sum — Simple addition</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="Sum home">
+          <span class="wordmark-mark" aria-hidden="true">+</span>
+          <span>sum</span>
+        </a>
+        <p class="masthead-note">A little room to work it out.</p>
+      </header>
+
+      <main class="workspace">
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow">JUST THE ESSENTIALS</p>
+          <h1 id="page-title">Two numbers.<br />One clear answer.</h1>
+          <p class="intro-copy">
+            Enter the numbers below. Your total appears as you go.
+          </p>
+        </section>
+
+        <section class="calculator" aria-labelledby="calculator-title">
+          <div class="calculator-heading">
+            <div>
+              <p class="eyebrow">YOUR WORKSHEET</p>
+              <h2 id="calculator-title">Add them up</h2>
+            </div>
+            <span class="worksheet-mark" aria-hidden="true">01 / +</span>
+          </div>
+
+          <form id="addition-form" novalidate>
+            <div class="inputs-row">
+              <div class="field-group">
+                <label for="first-number">First number</label>
+                <input
+                  id="first-number"
+                  name="firstNumber"
+                  type="number"
+                  inputmode="decimal"
+                  step="any"
+                  autocomplete="off"
+                  aria-describedby="input-guidance feedback"
+                />
+              </div>
+
+              <span class="operator" aria-hidden="true">+</span>
+
+              <div class="field-group">
+                <label for="second-number">Second number</label>
+                <input
+                  id="second-number"
+                  name="secondNumber"
+                  type="number"
+                  inputmode="decimal"
+                  step="any"
+                  autocomplete="off"
+                  aria-describedby="input-guidance feedback"
+                />
+              </div>
+            </div>
+
+            <p id="input-guidance" class="input-guidance">
+              Decimals and negative numbers work, too.
+            </p>
+
+            <div class="result-row">
+              <span class="result-label">Your total</span>
+              <span class="equals-sign" aria-hidden="true">=</span>
+              <output
+                id="sum-result"
+                class="result-value"
+                for="first-number second-number"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                —
+              </output>
+            </div>
+
+            <p id="feedback" class="feedback" role="status" aria-live="polite">
+              Enter both numbers to see the sum.
+            </p>
+
+            <div class="actions-row">
+              <span class="action-hint">Ready when you are.</span>
+              <button class="clear-button" type="reset">
+                <span aria-hidden="true">↺</span>
+                Clear numbers
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <footer class="page-footer">
+        <span>Made for the moments that need a quick sum.</span>
+        <span class="footer-note">No history. No fuss.</span>
+      </footer>
+    </div>
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>

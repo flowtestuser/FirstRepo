@@ -1,0 +1,426 @@
+:root {
+  font-family: "Avenir Next", Avenir, sans-serif;
+  color: #292c28;
+  background: #f4f0e7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --paper: #f4f0e7;
+  --sheet: #fffdf7;
+  --ink: #292c28;
+  --soft-ink: #686b62;
+  --line: #ded9ce;
+  --accent: #c85b37;
+  --accent-deep: #9f3f24;
+  --focus: #245a48;
+  --control-radius: 0.35rem;
+  --sheet-radius: 0.5rem;
+  --shadow: 0 1.25rem 3.5rem rgb(53 43 27 / 8%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--paper);
+  background-image: radial-gradient(#c7bba2 0.65px, transparent 0.65px);
+  background-position: -0.5rem -0.5rem;
+  background-size: 1.5rem 1.5rem;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.page-shell {
+  display: flex;
+  width: min(100% - var(--space-6), 70rem);
+  min-height: 100vh;
+  margin-inline: auto;
+  flex-direction: column;
+}
+
+.masthead,
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.masthead {
+  min-height: 5.5rem;
+  border-bottom: 1px solid rgb(41 44 40 / 14%);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  text-decoration: none;
+}
+
+.wordmark-mark {
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--control-radius);
+  background: var(--accent);
+  color: var(--sheet);
+  font-size: 1.25rem;
+  line-height: 1;
+  place-items: center;
+}
+
+.masthead-note,
+.page-footer {
+  color: var(--soft-ink);
+  font-size: 0.8125rem;
+}
+
+.workspace {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 0.88fr) minmax(32rem, 1.12fr);
+  align-items: center;
+  gap: clamp(var(--space-6), 8vw, var(--space-8));
+  padding-block: clamp(var(--space-7), 10vh, 7rem);
+}
+
+.intro {
+  max-width: 28rem;
+  padding-bottom: var(--space-6);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+}
+
+.intro h1 {
+  margin: var(--space-4) 0 0;
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+
+.intro-copy {
+  max-width: 21rem;
+  margin: var(--space-5) 0 0;
+  color: var(--soft-ink);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.calculator {
+  position: relative;
+  padding: clamp(var(--space-5), 4vw, var(--space-7));
+  border: 1px solid var(--line);
+  border-radius: var(--sheet-radius);
+  background: var(--sheet);
+  box-shadow: var(--shadow);
+}
+
+.calculator::before {
+  position: absolute;
+  top: 0;
+  left: var(--space-5);
+  width: 3.5rem;
+  height: 0.2rem;
+  background: var(--accent);
+  content: "";
+}
+
+.calculator-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.calculator-heading h2 {
+  margin: var(--space-1) 0 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.worksheet-mark {
+  color: var(--soft-ink);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.inputs-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+}
+
+.field-group {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-2);
+}
+
+.field-group label {
+  color: var(--soft-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.field-group input {
+  width: 100%;
+  min-height: 3.5rem;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid #cfcabd;
+  border-radius: var(--control-radius);
+  outline: none;
+  background: #fffefa;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    background-color 140ms ease;
+}
+
+.field-group input:hover {
+  border-color: #9d9a8f;
+}
+
+.field-group input:focus-visible {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px rgb(36 90 72 / 18%);
+}
+
+.field-group input[aria-invalid="true"] {
+  border-color: var(--accent-deep);
+  background: #fff8f4;
+}
+
+.operator {
+  padding-bottom: 0.875rem;
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.input-guidance {
+  min-height: 1.25rem;
+  margin: var(--space-2) 0 0;
+  color: var(--soft-ink);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.result-row {
+  display: flex;
+  min-height: 6.75rem;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-5) var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.result-label {
+  padding-bottom: 0.5rem;
+  color: var(--soft-ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.equals-sign {
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.result-value {
+  max-width: 75%;
+  overflow-wrap: anywhere;
+  color: var(--accent-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  text-align: right;
+}
+
+.feedback {
+  min-height: 1.5rem;
+  margin: var(--space-3) 0 0;
+  color: var(--soft-ink);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.action-hint {
+  color: var(--soft-ink);
+  font-size: 0.75rem;
+}
+
+.clear-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition:
+    border-color 140ms ease,
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.clear-button:hover {
+  border-color: var(--accent);
+  background: #fcf3eb;
+  color: var(--accent-deep);
+}
+
+.clear-button:active {
+  background: #f5e3d8;
+}
+
+.clear-button:focus-visible,
+.wordmark:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.page-footer {
+  min-height: 4.5rem;
+  border-top: 1px solid rgb(41 44 40 / 14%);
+  line-height: 1.5;
+}
+
+@media (max-width: 58rem) {
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .intro {
+    max-width: 38rem;
+    padding-bottom: 0;
+  }
+
+  .intro h1 {
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
+  }
+
+  .calculator {
+    width: min(100%, 38rem);
+  }
+}
+
+@media (max-width: 34rem) {
+  .page-shell {
+    width: min(100% - var(--space-4), 70rem);
+  }
+
+  .masthead {
+    min-height: 4.5rem;
+  }
+
+  .masthead-note {
+    max-width: 10rem;
+    text-align: right;
+  }
+
+  .workspace {
+    align-content: center;
+    gap: var(--space-5);
+    padding-block: var(--space-6);
+  }
+
+  .intro h1 {
+    font-size: clamp(2.25rem, 12vw, 3rem);
+  }
+
+  .calculator {
+    padding: var(--space-4);
+  }
+
+  .calculator::before {
+    left: var(--space-4);
+  }
+
+  .inputs-row {
+    gap: var(--space-2);
+  }
+
+  .field-group input {
+    padding-inline: var(--space-2);
+    font-size: 1.125rem;
+  }
+
+  .page-footer {
+    min-height: 4rem;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-1);
+    padding-block: var(--space-3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
