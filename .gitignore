@@ -1,0 +1,22 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+.turbo/
+next-env.d.ts
+*.tsbuildinfo
+.env*
+!.env.example
+
+# Crash artifacts
+core
+core.*
+*.heapsnapshot
+report.*.json
+isolate-*.log
+
+# Local editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
